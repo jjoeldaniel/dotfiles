@@ -15,3 +15,4 @@ brew exiftool
 brew gping
 brew lazygit
 brew lazydocker
+brew go

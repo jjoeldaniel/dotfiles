@@ -36,10 +36,10 @@ REPO_URL="git@github.com:jjoeldaniel/kickstart.nvim.git"
 TARGET_DIR="$HOME/.config/nvim"
 
 if [ -d "$TARGET_DIR" ]; then
-  rm -rf "$TARGET_DIR"
+  /bin/bash -c "$(rm -rf "$TARGET_DIR")"
 fi
 
-git clone "$REPO_URL" "$TARGET_DIR"
+/bin/bash -c "$(git clone "$REPO_URL" "$TARGET_DIR")"
 
 # Install NerdFonts for p10k
 /bin/bash -c "$(git clone --depth=1 https://github.com/romkatv/nerd-fonts.git)"

@@ -2,11 +2,6 @@
 
 echo "Setting up Linux..."
 
-# Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-fi
-
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -27,6 +22,14 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew bundle --file ./Brewfile
+
+# Check for Oh My Zsh if we don't have it
+if test ! $(which omz); then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+fi
+
+# Installs antigen
+/bin/bash -c "$(curl -L git.io/antigen > antigen.zsh)"
 
 # Install NeoVim
 if test ! $(which nvim); then

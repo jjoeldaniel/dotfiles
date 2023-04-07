@@ -11,3 +11,7 @@ brew python
 brew unzip
 brew exa
 brew bat
+brew exiftool
+brew gping
+brew lazygit
+brew lazydocker

@@ -23,11 +23,6 @@ brew update
 brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
-# Check for Oh My Zsh if we don't have it
-if test ! $(which omz); then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-fi
-
 # Installs antigen
 /bin/bash -c "$(curl -L git.io/antigen > antigen.zsh)"
 
@@ -46,13 +41,8 @@ fi
 
 git clone "$REPO_URL" "$TARGET_DIR"
 
-# Install Powerlevel10k and its fonts
-# Run `p10k configure` to setup
-if test ! $(which p10k); then
-  /bin/bash -c "$(git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k)"
-fi
-
-git clone --depth=1 https://github.com/romkatv/nerd-fonts.git
-cd nerd-fonts
-./build 'Meslo/S/*'
+# Install NerdFonts for p10k
+/bin/bash -c "$(git clone --depth=1 https://github.com/romkatv/nerd-fonts.git)"
+/bin/bash -c "$(cd nerd-fonts)"
+/bin/bash -c "$(./build 'Meslo/S/*')"
 

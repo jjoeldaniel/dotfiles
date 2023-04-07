@@ -9,3 +9,5 @@ brew autojump
 brew tree-sitter
 brew python
 brew unzip
+brew exa
+brew bat

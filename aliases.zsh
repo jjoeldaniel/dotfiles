@@ -10,3 +10,9 @@ alias keygen="ssh-keygen -t ed25519"
 
 # thefuck 
 alias fk="fuck"
+
+# exa
+alias ls="exa"
+
+# bat
+alias cat="bat"

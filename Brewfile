@@ -1,0 +1,10 @@
+brew tldr
+brew tree
+brew thefuck
+brew openjdk
+brew navi
+brew fzf
+brew autojump
+brew tree-sitter
+brew python
+brew unzip

@@ -1,3 +1,4 @@
+brew zsh
 brew tldr
 brew tree
 brew thefuck

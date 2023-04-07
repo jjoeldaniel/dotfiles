@@ -16,3 +16,4 @@ brew gping
 brew lazygit
 brew lazydocker
 brew go
+brew node

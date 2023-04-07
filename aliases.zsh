@@ -16,3 +16,6 @@ alias ls="exa"
 
 # bat
 alias cat="bat"
+
+# ddgr
+alias google="ddgr"

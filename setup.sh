@@ -26,6 +26,9 @@ brew bundle --file ./Brewfile
 # Installs antigen
 /bin/bash -c "$(curl -L git.io/antigen > antigen.zsh)"
 
+# Installs nitch (system fetcher)
+/bin/bash -c "$(wget https://raw.githubusercontent.com/unxsh/nitch/main/setup.sh && sh setup.sh)"
+
 # Install NeoVim
 if test ! $(which nvim); then
   /bin/bash -c "$(brew install neovim --HEAD)"

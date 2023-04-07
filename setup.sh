@@ -49,3 +49,5 @@ fi
 /bin/bash -c "$(cd nerd-fonts)"
 /bin/bash -c "$(./build 'Meslo/S/*')"
 
+# Setup sshd config
+/bin/bash -c "$(cp sshd_config /etc/ssh/)"

@@ -1,4 +1,4 @@
-!/bin/bash
+!/bin/sh
 
 echo "Setting up Linux..."
 
@@ -14,11 +14,30 @@ fi
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
-# cp .zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+cp ./.zshrc $HOME/.zshrc
+cp ./antigen.zsh $HOME/antigen.zsh
+cp ./aliases.zsh $HOME/aliases.zsh
 
 # Update Homebrew recipes
 brew update
+brew install bat
+brew install tldr
+brew install tree
+brew install thefuck
+brew install openjdk
+brew install navi
+brew install fzf
+brew install autojump
+brew install tree-sitter
+brew install python@3.11
+brew install unzip
+brew install exa
+brew install bat
+brew install exiftool
+brew install gping
+brew install lazygit
+brew install lazydocker
+brew install node
 
 # Install all our dependencies with bundle (See Brewfile)
 # brew tap homebrew/bundle
@@ -30,14 +49,15 @@ curl -L git.io/antigen > antigen.zsh
 # Install NeoVim
 if test ! $(which nvim); then
   brew install neovim --HEAD
+
+  # Setup Neovim Config
+  REPO_URL="git@github.com:jjoeldaniel/kickstart.nvim.git"
+  TARGET_DIR="$HOME/.config/nvim"
+
+  if [ -d "$TARGET_DIR" ]; then
+    rm -rf "$TARGET_DIR"
+  fi
+
+  git clone "$REPO_URL" "$TARGET_DIR"
+
 fi
-
-# Setup Neovim Config
-REPO_URL="git@github.com:jjoeldaniel/kickstart.nvim.git"
-TARGET_DIR="$HOME/.config/nvim"
-
-if [ -d "$TARGET_DIR" ]; then
-  rm -rf "$TARGET_DIR"
-fi
-
-git clone "$REPO_URL" "$TARGET_DIR"

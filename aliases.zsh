@@ -16,7 +16,7 @@ alias ls="exa"
 alias tree="exa -T -L"
 
 # bat
-alias cat="bat"
+alias cat="bat -p"
 
 # ddgr
 alias google="ddgr"

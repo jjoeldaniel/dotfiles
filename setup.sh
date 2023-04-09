@@ -16,10 +16,13 @@ fi
 rm -f $HOME/antigen.zsh
 curl -L git.io/antigen > $HOME/antigen.zsh
 
-# Copies over necessary files
+# Link .zshrc 
 rm -f $HOME/.zshrc
+ln -s dotfiles/.zshrc ~/.zshrc
+
+# Copies over necessary files
 rm -f $HOME/aliases.zsh
-cp ./.zshrc $HOME/.zshrc
+# cp ./.zshrc $HOME/.zshrc
 cp ./aliases.zsh $HOME/aliases.zsh
 
 # Update Homebrew recipes

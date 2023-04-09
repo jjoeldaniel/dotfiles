@@ -4,17 +4,18 @@ echo "Setting up Linux..."
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 fi
 
 # Check for rustup and install if we don't have it
 if test ! $(which rustup); then
-  /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh)"
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
-ln -s .zshrc $HOME/.zshrc
+# cp .zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 # Update Homebrew recipes
 brew update
@@ -24,11 +25,11 @@ brew update
 # brew bundle --file ./Brewfile
 
 # Installs antigen
-/bin/bash -c "$(curl -L git.io/antigen > antigen.zsh)"
+curl -L git.io/antigen > antigen.zsh
 
 # Install NeoVim
 if test ! $(which nvim); then
-  /bin/bash -c "$(brew install neovim --HEAD)"
+  brew install neovim --HEAD
 fi
 
 # Setup Neovim Config
@@ -36,7 +37,7 @@ REPO_URL="git@github.com:jjoeldaniel/kickstart.nvim.git"
 TARGET_DIR="$HOME/.config/nvim"
 
 if [ -d "$TARGET_DIR" ]; then
-  /bin/bash -c "$(rm -rf "$TARGET_DIR")"
+  rm -rf "$TARGET_DIR"
 fi
 
-/bin/bash -c "$(git clone "$REPO_URL" "$TARGET_DIR")"
+git clone "$REPO_URL" "$TARGET_DIR"

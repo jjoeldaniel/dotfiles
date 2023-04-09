@@ -12,6 +12,9 @@ if test ! $(which rustup); then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
+# Installs antigen
+curl -L git.io/antigen > antigen.zsh
+
 # Copies over necessary files
 cp ./.zshrc $HOME/.zshrc
 cp ./antigen.zsh $HOME/antigen.zsh
@@ -19,31 +22,70 @@ cp ./aliases.zsh $HOME/aliases.zsh
 
 # Update Homebrew recipes
 brew update
-brew install bat
-brew install tldr
-brew install tree
-brew install thefuck
-brew install openjdk
-brew install navi
-brew install fzf
-brew install autojump
-brew install tree-sitter
-brew install python@3.11
-brew install unzip
-brew install exa
-brew install bat
-brew install exiftool
-brew install gping
-brew install lazygit
-brew install lazydocker
-brew install node
 
-# Install all our dependencies with bundle (See Brewfile)
-# brew tap homebrew/bundle
-# brew bundle --file ./Brewfile
+if test ! $(which bat); then
+  brew install bat
+fi
 
-# Installs antigen
-curl -L git.io/antigen > antigen.zsh
+if test ! $(which tldr); then
+  brew install tldr
+fi
+
+if test ! $(which thefuck); then
+  brew install thefuck
+fi
+
+if test ! $(which java); then
+  brew install openjdk
+fi
+
+if test ! $(which navi); then
+  brew install navi
+fi
+
+if test ! $(which fzf); then
+  brew install fzf
+fi
+
+if test ! $(which autojump); then
+  brew install autojump
+fi
+
+if test ! $(which python3); then
+  brew install python@3.11
+fi
+
+if test ! $(which unzip); then
+  brew install unzip
+fi
+
+if test ! $(which exa); then
+  brew install exa
+fi
+
+if test ! $(which exiftool); then
+  brew install exiftool
+fi
+
+if test ! $(which lazygit); then
+  brew install lazygit
+fi
+
+if test ! $(which gping); then
+  brew install gping
+fi
+
+if test ! $(which lazydocker); then
+  brew install lazydocker
+fi
+
+if test ! $(which node); then
+  brew install node
+fi
+
+if test ! $(which tree-sitter); then
+  brew install tree-sitter
+fi
 
 # Install NeoVim
 if test ! $(which nvim); then

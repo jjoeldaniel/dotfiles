@@ -16,9 +16,9 @@ fi
 curl -L git.io/antigen > antigen.zsh
 
 # Copies over necessary files
-rm $HOME/.zshrc
-rm $HOME/antigen.zsh
-rm $HOME/aliases.zsh
+rm -f $HOME/.zshrc
+rm -f $HOME/antigen.zsh
+rm -f $HOME/aliases.zsh
 cp ./.zshrc $HOME/.zshrc
 cp ./antigen.zsh $HOME/antigen.zsh
 cp ./aliases.zsh $HOME/aliases.zsh

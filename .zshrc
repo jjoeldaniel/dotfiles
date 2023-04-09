@@ -15,7 +15,7 @@ fi
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Antigen zsh plugins
-source /antigen.zsh
+source ./antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
@@ -25,7 +25,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen theme romkatv/powerlevel10k
 
 # Aliases
-source /aliases.zsh
+source ./aliases.zsh
 
 export PATH=/home/joel/.local/bin:$PATH
 

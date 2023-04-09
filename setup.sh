@@ -13,14 +13,13 @@ if test ! $(which rustup); then
 fi
 
 # Installs antigen
-curl -L git.io/antigen > antigen.zsh
+rm -f $HOME/antigen.zsh
+curl -L git.io/antigen > $HOME/antigen.zsh
 
 # Copies over necessary files
 rm -f $HOME/.zshrc
-rm -f $HOME/antigen.zsh
 rm -f $HOME/aliases.zsh
 cp ./.zshrc $HOME/.zshrc
-cp ./antigen.zsh $HOME/antigen.zsh
 cp ./aliases.zsh $HOME/aliases.zsh
 
 # Update Homebrew recipes

@@ -1,4 +1,4 @@
-!/bin/sh
+!#!/bin/bash
 
 echo "Setting up Linux..."
 
@@ -12,8 +12,7 @@ if test ! $(which rustup); then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
+# Copies over necessary files
 cp ./.zshrc $HOME/.zshrc
 cp ./antigen.zsh $HOME/antigen.zsh
 cp ./aliases.zsh $HOME/aliases.zsh

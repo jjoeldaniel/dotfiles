@@ -1,4 +1,4 @@
-!/bin/bash
+!#!/bin/bash
 
 # Install NerdFonts for p10k
 /bin/bash -c "$(git clone --depth=1 https://github.com/romkatv/nerd-fonts.git)"

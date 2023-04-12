@@ -32,6 +32,18 @@ if test ! $(which bat); then
   brew install bat
 fi
 
+if test ! $(which ripgrep); then
+  brew install ripgrep
+fi
+
+if test ! $(which wtfutil); then
+  brew install wtfutil
+fi
+
+if test ! $(which tldr); then
+  brew install tealdeer
+fi
+
 if test ! $(which tldr); then
   brew install tldr
 fi

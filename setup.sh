@@ -32,7 +32,7 @@ if test ! $(which bat); then
   brew install bat
 fi
 
-if test ! $(which ripgrep); then
+if test ! $(which rg); then
   brew install ripgrep
 fi
 

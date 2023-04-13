@@ -11,6 +11,9 @@ alias keygen="ssh-keygen -t ed25519"
 # thefuck 
 alias fk="fuck"
 
+# lazygit
+alias lg="lazygit"
+
 # exa
 alias ls="exa"
 alias tree="exa -T -L"

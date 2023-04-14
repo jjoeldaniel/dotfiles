@@ -11,6 +11,12 @@ alias keygen="ssh-keygen -t ed25519"
 # thefuck 
 alias fk="fuck"
 
+# git
+alias pull="git pull"
+alias fetch="git fetch"
+alias commit="git commit -m"
+alias push="git push"
+
 # lazygit
 alias lg="lazygit"
 

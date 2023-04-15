@@ -34,6 +34,7 @@ command -v java || sudo dnf install java-latest-openjdk.x86_64 -y
 command -v node || sudo dnf install nodejs -y
 command -v nvim || sudo dnf install neovim -y
 command -v neofetch || sudo dnf install neofetch -y
+command -v gh || sudo dnf install gh -y
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit -y

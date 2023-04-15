@@ -11,14 +11,11 @@ fi
 rm -f $HOME/antigen.zsh
 curl -L git.io/antigen > $HOME/antigen.zsh
 
-# Link .zshrc 
+# Link files 
 rm -f $HOME/.zshrc
-ln -s dotfiles/.zshrc ~/.zshrc
-
-# Copies over necessary files
 rm -f $HOME/aliases.zsh
-# cp ./.zshrc $HOME/.zshrc
-cp ./aliases.zsh $HOME/aliases.zsh
+ln -s dotfiles/.zshrc $HOME/.zshrc
+ln -s dotfiles/aliases.zsh $HOME/aliases.zsh
 
 # install all the tools
 command -v zsh || sudo dnf install zsh -y
@@ -36,6 +33,7 @@ command -v autojump || sudo dnf install autojump-zsh -y
 command -v java || sudo dnf install java-latest-openjdk.x86_64 -y
 command -v node || sudo dnf install nodejs -y
 command -v nvim || sudo dnf install neovim -y
+command -v neofetch || sudo dnf install neofetch -y
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit -y

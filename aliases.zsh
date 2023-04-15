@@ -11,6 +11,9 @@ alias keygen="ssh-keygen -t ed25519"
 # thefuck 
 alias fk="fuck"
 
+# podman
+alias docker="podman"
+
 # git
 alias pull="git pull"
 alias fetch="git fetch"

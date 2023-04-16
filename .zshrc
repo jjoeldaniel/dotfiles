@@ -1,5 +1,5 @@
 # Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/dotfiles
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -15,7 +15,7 @@ fi
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Antigen zsh plugins
-source ./antigen.zsh
+source $DOTFILES/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
@@ -26,7 +26,7 @@ antigen theme romkatv/powerlevel10k
 antigen apply
 
 # Aliases
-source ./aliases.zsh
+source $DOTFILES/aliases.zsh
 
 export PATH=/home/joel/.local/bin:$PATH
 

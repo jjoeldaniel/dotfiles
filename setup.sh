@@ -8,14 +8,11 @@ if test ! $(which rustup); then
 fi
 
 # Installs antigen
-rm -f $HOME/antigen.zsh
-curl -L git.io/antigen > $HOME/antigen.zsh
+curl -L git.io/antigen > $HOME/dotfiles/antigen.zsh
 
 # Link files 
 rm -f $HOME/.zshrc
-rm -f $HOME/aliases.zsh
-ln -s dotfiles/.zshrc $HOME/.zshrc
-ln -s dotfiles/aliases.zsh $HOME/aliases.zsh
+ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 # install all the tools
 command -v zsh || sudo dnf install zsh -y

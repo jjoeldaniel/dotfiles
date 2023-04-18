@@ -33,5 +33,5 @@ alias cat="bat -p"
 # ddgr
 alias google="ddgr"
 
-# setup venv and install dependencies
-alias venv="[ ! -d "venv" ] && python3 -m venv venv && source venv/bin/activate && pip install pipreqs && [ -e "requirements.txt" ] && pip install -r requirements.txt || [ -d venv ] && source venv/bin/activate"
+# setup venv
+alias venv="[ ! -d "venv" ] && python3 -m venv venv && source venv/bin/activate || [ -d venv ] && source venv/bin/activate"

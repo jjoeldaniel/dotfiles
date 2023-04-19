@@ -1,0 +1,64 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Install packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - zsh
+        - bat
+        - make
+        - automake
+        - gcc
+        - gcc-c++
+        - valgrind
+        - exa
+        - navi
+        - thefuck
+        - autojump-zsh
+        - java-latest-openjdk.x86_64
+        - nodejs
+        - neovim
+        - neofetch
+        - gh
+
+    - name: Check for rustup and install if necessary
+      command: which rustup
+      register: rustup_check
+      ignore_errors: yes
+      changed_when: false
+
+    - name: Install rustup if not found
+      shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      when: rustup_check.rc != 0
+
+    - name: Install antigen if necessary
+      stat:
+        path: ~/dotfiles/antigen.zsh
+      register: antigen_check
+      ignore_errors: yes
+
+    - name: Download antigen if not found
+      get_url:
+        url: https://git.io/antigen
+        dest: ~/dotfiles/antigen.zsh
+      when: antigen_check.stat.exists == false
+
+    - name: Set up symlinks
+      file:
+        src: ~/dotfiles/.zshrc
+        dest: ~/.zshrc
+        state: link
+      register: symlink_result
+      notify: Reload shell
+
+  handlers:
+    - name: Reload shell
+      shell: source ~/.zshrc
+      async: 0
+      poll: 0
+      ignore_errors: yes
+

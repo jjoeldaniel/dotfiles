@@ -24,6 +24,7 @@ declare -A command_packages=(
 ["nvim"]="neovim"
 ["neofetch"]="neofetch"
 ["gh"]="gh"
+["rg"]="ripgrep"
 )
 
 # Install packages based on the command-to-package mapping

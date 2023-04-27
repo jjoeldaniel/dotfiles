@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Update
+sudo -S dnf update -y
+
 # Function to install packages
 install_package() {
 sudo -S dnf install "$1" -y
@@ -28,7 +31,6 @@ declare -A command_packages=(
 )
 
 # Install packages based on the command-to-package mapping
-
 for command in "${!command_packages[@]}"; do
 if ! command -v "$command" &>/dev/null; then
 install_package "${command_packages[$command]}"

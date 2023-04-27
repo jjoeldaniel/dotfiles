@@ -1,6 +1,6 @@
 # Shortcuts
 alias c="clear"
-alias reloadshell="source $HOME/.zshrc"
+alias reloadshell="source $DOTFILES/.zshrc"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
@@ -29,9 +29,6 @@ alias tree="exa -T -L"
 
 # bat
 alias cat="bat -p"
-
-# ddgr
-alias google="ddgr"
 
 # setup venv
 alias venv="[ ! -d "venv" ] && python3 -m venv venv && source venv/bin/activate || [ -d venv ] && source venv/bin/activate"

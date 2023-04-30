@@ -52,8 +52,8 @@ target_dir="$HOME/.config/nvim"
 git clone --depth=1 "$repo_url" "$target_dir"
 
 # Setup pyenv
-brew install openssl readline sqlite3 xz zlib tcl-tk
 if ! which pyenv &>/dev/null; then
+  brew install openssl readline sqlite3 xz zlib tcl-tk
   curl https://pyenv.run | bash
 fi
 

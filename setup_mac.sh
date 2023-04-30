@@ -45,9 +45,14 @@ if [[ ! -f "$antigen_path" ]]; then
 fi
 
 # Setup neovim config
+rm -rf $HOME/.config/nvim
 repo_url="https://github.com/jjoeldaniel/kickstart.nvim.git"
 target_dir="$HOME/.config/nvim"
 git clone --depth=1 "$repo_url" "$target_dir"
+
+# Setup pyenv
+brew install openssl readline sqlite3 xz zlib tcl-tk
+curl https://pyenv.run | bash
 
 # Link files
 rm -f "$HOME/.zshrc"

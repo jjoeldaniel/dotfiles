@@ -78,6 +78,9 @@ sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo lvextend /dev/mapper/fedora-root -l+100%FREE
 sudo xfs_growfs /dev/mapper/fedora-root
 
+# Setup projects directory
+mkdir $HOME/projects
+
 # Link files
 rm -f "$HOME/.zshrc"
 ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"

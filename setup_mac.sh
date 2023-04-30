@@ -57,6 +57,9 @@ if ! which pyenv &>/dev/null; then
   curl https://pyenv.run | bash
 fi
 
+# Setup projects directory
+mkdir $HOME/projects
+
 # Link files
 rm -f "$HOME/.zshrc"
 ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"

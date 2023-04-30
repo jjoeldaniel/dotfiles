@@ -53,7 +53,7 @@ git clone --depth=1 "$repo_url" "$target_dir"
 
 # Setup pyenv
 if ! which pyenv &>/dev/null; then
-  brew install openssl readline sqlite3 xz zlib tcl-tk
+  brew install openssl readline sqlite3 xz tcl-tk
   curl https://pyenv.run | bash
 fi
 

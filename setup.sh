@@ -55,11 +55,9 @@ if ! which lazygit >/dev/null; then
 fi
 
 # Setup neovim config
-if ! which nvim >/dev/null; then
-    repo_url="https://github.com/jjoeldaniel/kickstart.nvim.git"
-    target_dir="$HOME/.config/nvim"
-    git clone --depth=1 "$repo_url" "$target_dir"
-fi
+repo_url="https://github.com/jjoeldaniel/kickstart.nvim.git"
+target_dir="$HOME/.config/nvim"
+git clone --depth=1 "$repo_url" "$target_dir"
 
 # Link files
 rm -f "$HOME/.zshrc"

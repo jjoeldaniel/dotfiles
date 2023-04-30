@@ -67,6 +67,17 @@ if ! which pyenv &>/dev/null; then
   curl https://pyenv.run | bash
 fi
 
+# Install Docker Engine
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+# Expand HDD size (server stuff)
+sudo lvextend /dev/mapper/fedora-root -l+100%FREE
+sudo xfs_growfs /dev/mapper/fedora-root
+
 # Link files
 rm -f "$HOME/.zshrc"
 ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"

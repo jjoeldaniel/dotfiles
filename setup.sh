@@ -61,8 +61,8 @@ target_dir="$HOME/.config/nvim"
 git clone --depth=1 "$repo_url" "$target_dir"
 
 # Setup pyenv
-curl https://pyenv.run | bash
 sudo dnf -S install make gcc patch zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel libuuid-devel gdbm-devel libnsl2-devel -y
+curl https://pyenv.run | bash
 
 # Link files
 rm -f "$HOME/.zshrc"

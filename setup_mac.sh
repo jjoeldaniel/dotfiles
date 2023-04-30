@@ -14,6 +14,7 @@ declare command_packages=(
 ["make"]="make"
 ["valgrind"]="valgrind"
 ["exa"]="exa"
+["tldr"]="tealdeer"
 ["navi"]="navi"
 ["thefuck"]="thefuck"
 ["autojump"]="autojump-zsh"

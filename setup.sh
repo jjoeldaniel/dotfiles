@@ -19,6 +19,7 @@ declare -A command_packages=(
 ["gcc-c++"]="gcc-c++"
 ["valgrind"]="valgrind"
 ["exa"]="exa"
+["tldr"]="tealdeer"
 ["navi"]="navi"
 ["thefuck"]="thefuck"
 ["autojump"]="autojump-zsh"

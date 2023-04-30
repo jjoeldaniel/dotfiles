@@ -50,14 +50,19 @@ fi
 
 # Install lazygit
 if ! which lazygit >/dev/null; then
-    sudo dnf copr enable atim/lazygit -y
-    sudo dnf install lazygit
+    sudo dnf -S copr enable atim/lazygit -y
+    sudo dnf -S install lazygit -y
 fi
 
 # Setup neovim config
+rm -rf $HOME/.config/nvim
 repo_url="https://github.com/jjoeldaniel/kickstart.nvim.git"
 target_dir="$HOME/.config/nvim"
 git clone --depth=1 "$repo_url" "$target_dir"
+
+# Setup pyenv
+curl https://pyenv.run | bash
+sudo dnf -S install make gcc patch zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel libuuid-devel gdbm-devel libnsl2-devel -y
 
 # Link files
 rm -f "$HOME/.zshrc"

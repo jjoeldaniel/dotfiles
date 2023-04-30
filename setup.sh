@@ -68,11 +68,13 @@ if ! which pyenv &>/dev/null; then
 fi
 
 # Install Docker Engine
-sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager \
-    --add-repo \
-    https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+if ! which docker &>/dev/null; then
+  sudo dnf -y install dnf-plugins-core
+  sudo dnf config-manager \
+      --add-repo \
+      https://download.docker.com/linux/fedora/docker-ce.repo
+  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+fi
 
 # Expand HDD size (server stuff)
 sudo lvextend /dev/mapper/fedora-root -l+100%FREE

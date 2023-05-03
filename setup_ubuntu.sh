@@ -73,9 +73,9 @@ fi
 
 # Setup neovim config
 if ! which neoivm >/dev/null; then
-  sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt update
-  sudo apt install neovim
+  sudo add-apt-repository ppa:neovim-ppa/unstable -y
+  sudo apt update -y
+  sudo apt install neovim -y
 fi
 
 rm -rf $HOME/.config/nvim

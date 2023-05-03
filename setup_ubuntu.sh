@@ -33,7 +33,6 @@ sudo -S snap "$1" -y
 
 declare -A snap_packages=(
 ["node"]="node --classic"
-["nvim"]="nvim --edge --classic"
 )
 
 # Install packages based on the command-to-package mapping
@@ -73,6 +72,12 @@ if ! which tldr >/dev/null; then
 fi
 
 # Setup neovim config
+if ! which neoivm >/dev/null; then
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt update
+  sudo apt install neovim
+fi
+
 rm -rf $HOME/.config/nvim
 repo_url="https://github.com/jjoeldaniel/kickstart.nvim.git"
 target_dir="$HOME/.config/nvim"

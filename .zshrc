@@ -20,8 +20,10 @@ source $DOTFILES/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle pip
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle command-not-found
 
 antigen theme romkatv/powerlevel10k
 antigen apply
@@ -45,3 +47,4 @@ eval "$(pyenv virtualenv-init -)"
 [ -f /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh

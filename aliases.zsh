@@ -4,7 +4,6 @@ alias reloadshell="source $DOTFILES/.zshrc"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
-alias projects="cd $PROJECTS"
 
 # SSH Key Generation
 alias keygen="ssh-keygen -t ed25519"

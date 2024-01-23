@@ -18,8 +18,7 @@ def cmd(args: str):
 
 
 def fisher_which(command: str) -> bool:
-    output = cmd("fisher list")
-    return True if f"/{command}" in str(output) else False
+    return True if f"/{command}" in str(cmd("fisher list")) else False
 
 
 def which(command: str, install_command: str | None = None) -> bool:
@@ -62,26 +61,34 @@ class Packages:
         )
 
 
-def collect_packages(path: str, debug: bool = False) -> Packages:
+def collect_packages(
+    path: str, debug: bool = False, includes_header: bool = True
+) -> Packages:
     # Package name : Command name
     packages: list[Package] = list()
     install_command: str | None = None
 
     with open(path, "r") as f:
         header_encountered: bool = False
+        multiline_comment: bool = False
 
         for x in f.readlines():
+            # Skip comments and empty lines
+            if x.startswith("###"):
+                multiline_comment = not multiline_comment
+                continue
+            if multiline_comment:
+                continue
             if x.startswith("#") or x.strip() == "":
                 continue
 
+            # Parse out installation command and CSV headers
             if not install_command:
                 install_command = x.strip()
-            elif not header_encountered and x.strip() != "":
+            elif includes_header and not header_encountered and x.strip() != "":
                 header_encountered = True
+            # Parse data
             else:
-                if x.strip() == "":
-                    continue
-
                 parse = x.strip().split(",")
                 packages.append(
                     Package(name=parse[0].strip(), command=parse[1].strip())

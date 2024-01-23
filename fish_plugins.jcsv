@@ -1,3 +1,9 @@
+###
+This is just a simple modified CSV file that
+has support for denoting an installation command
+for the supported packages
+###
+
 fisher install
 
 package, command

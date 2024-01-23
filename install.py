@@ -3,10 +3,6 @@ import pprint
 import os
 import subprocess
 
-# TODO:
-# Install neovim config
-# Install Rust
-
 
 def cmd(args: str):
     subprocess.run(
@@ -103,6 +99,18 @@ def collect_packages(
     return Packages(install_command, packages)
 
 
+def install_rust():
+    if which("rustup"):
+        return
+
+    # Install rustup
+    cmd("curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh")
+
+    # Enable rustup completions
+    cmd("mkdir -p ~/.config/fish/completions")
+    cmd("rustup completions fish > ~/.config/fish/completions/rustup.fish")
+
+
 def main():
     debug: bool = False
     paths = [f for f in os.listdir("./") if f.endswith(".jcsv")]
@@ -115,8 +123,16 @@ def main():
     if os.environ["SHELL"] != "/usr/bin/fish":
         cmd("chsh -s $(which fish)")
 
+    # Install latest Node
     if not which("node"):
         cmd("nvm install latest")
+
+    # Install neovim config
+    cmd("rm -rf ~/.config/nvim")
+    cmd("git clone https://github.com/jjoeldaniel/nvim ~/.config/nvim")
+
+    # Install rustup
+    install_rust()
 
 
 if __name__ == "__main__":

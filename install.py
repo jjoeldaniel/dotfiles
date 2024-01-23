@@ -1,6 +1,6 @@
 import shutil
 import pprint
-from os import environ
+import os
 import subprocess
 
 # TODO:
@@ -98,14 +98,14 @@ def collect_packages(path: str, debug: bool = False) -> Packages:
 
 def main():
     debug: bool = False
-    paths = ["./packages.jcsv", "./fish_plugins.jcsv"]
+    paths = [f for f in os.listdir("./") if f.endswith(".jcsv")]
 
     for path in paths:
         packages: Packages = collect_packages(path, debug=debug)
         packages.install()
 
     # Switch to fish shell
-    if environ["SHELL"] != "/usr/bin/fish":
+    if os.environ["SHELL"] != "/usr/bin/fish":
         cmd("chsh -s $(which fish)")
 
     if not which("node"):

@@ -1,0 +1,6 @@
+fisher install
+
+package, command
+jethrokuan/z, z
+IlanCosman/tide@v6, tide
+jorgebucaran/nvm.fish, nvm

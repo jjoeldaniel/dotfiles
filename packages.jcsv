@@ -1,0 +1,12 @@
+sudo dnf install -y
+
+package, command
+fish, fish
+nasm, nasm
+nvim, nvim
+clang, clang
+g++, g++
+gcc, gcc
+gh, gh
+tealdeer, tldr
+go, go
